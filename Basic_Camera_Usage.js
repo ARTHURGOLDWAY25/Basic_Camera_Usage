@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Text, View, Button, TouchableOpacity, StyleSheet, ActivityIndicator, SafeAreaView } from "react-native";
 import { Camera } from "expo-camera";
 import * as Permissions from "expo-permissions";
-import { Video } from "expo-av";
+import { Video } from "expo-av"; 
 
 export default function App() {
   const [hasPermission, setHasPermission] = useState(null);
@@ -10,7 +10,7 @@ export default function App() {
   const [videoPreviewUrl, setVideoPreviewUrl] = useState(null);
   const camera = useRef();
 
-  //create camera access permission
+  //create camera access permission 
   const CameraPermissionAsync = async () => {
     try{
       const {status} = await Permissions.askAsync(Permissions.CAMERA,
@@ -21,7 +21,7 @@ export default function App() {
       console.error('Permission failed', error)
     }
   };
-
+// can use the useEffect hook separately
   useEffect(() => {
     CameraPermissionAsync()
   }, [])
